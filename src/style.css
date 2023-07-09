@@ -1,0 +1,128 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.timer {
+  padding: 20px;
+  margin: 10px 0 40px;
+  font-size: 20px;
+  border: 2px solid var(--primary-color, "#fafafa");
+  color: var(--primary-color, "#fafafa");
+  width: min-content;
+}
+
+#game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border: 2px dashed var(--primary-color, "#fafafa");
+  background-color: var(--background-color, "#242424");
+  width: min-content;
+  margin: 20px auto; 
+  position: relative;
+}
+
+#game-area .overlay-lost, #game-area .overlay-won, #game-area .overlay-go {
+  background-blend-mode: darken;
+  background: rgba(30, 30, 30, 0.9);
+  width: 100%;
+  height: 20%;
+  color: red;
+  font-size: 150%;
+  padding: 20px;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: scale(0);
+}
+
+button {
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+#game-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.game-card {
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  perspective: 500px;
+  cursor: pointer;
+}
+
+.game-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.game-card.active .game-card-inner {
+  transform: rotateY(180deg);
+}
+
+.game-card.hidden {
+  visibility: hidden;
+}
+
+.game-card .front, .game-card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.game-card .front {
+  background-color: var(--background-color, "#242424");
+  border: 1px solid var(--primary-color, "#fafafa");
+  border-radius: 15px;
+  color: black;
+  
+}
+
+.game-card .back {
+  background-color: var(--background-color, "#242424");
+  border: 1px solid var(--primary-color, "#fafafa");
+  border-radius: 15px;
+  color: var(--primary-color, "#fafafa");
+  transform: rotateY(180deg);
+  font-family: 'Noto Color Emoji', sans-serif;
+}
+
+
+
